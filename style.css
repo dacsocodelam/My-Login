@@ -1,41 +1,456 @@
+/* ============================================================================
+   GENERAL STYLES - Thiết lập giao diện tổng thể
+   ============================================================================ */
 
 body {
-  font-family: sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Container chứa form */
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  animation: slideDown 0.5s ease-out;
+  position: relative;
+  z-index: 10;
+}
+
+/* Hiệu ứng trượt xuống khi load trang */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  color: #667eea;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-size: 28px;
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================================
+   FORM GROUP - Nhóm các input
+   ============================================================================ */
+
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+/* Hiệu ứng xuất hiện từng form-group */
+.form-group:nth-child(5) {
+  animation-delay: 0.1s;
+}
+.form-group:nth-child(6) {
+  animation-delay: 0.2s;
+}
+.form-group:nth-child(7) {
+  animation-delay: 0.3s;
+}
+.form-group:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 label {
   display: block;
   font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
 }
 
+/* ============================================================================
+   ERROR MESSAGES - Thông báo lỗi
+   ============================================================================ */
+
 .error-msg {
-  color: red;
-  font-size: 0.9em;
+  color: #e74c3c;
+  font-size: 0.85em;
   display: none;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: #ffe6e6;
+  border-left: 3px solid #e74c3c;
+  border-radius: 4px;
+  animation: shakeError 0.5s ease-in-out;
+}
+
+/* Hiệu ứng rung khi hiện lỗi */
+@keyframes shakeError {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .main-error {
-  color: red;
+  color: #e74c3c;
   font-weight: bold;
-  padding: 10px;
-  border: 1px solid red;
+  padding: 15px 20px;
+  border: 2px solid #e74c3c;
+  background: #ffe6e6;
   display: none;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  animation: slideInFromTop 0.4s ease-out, pulse 0.6s ease-in-out;
 }
+
+/* Hiệu ứng trượt từ trên xuống */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hiệu ứng nhấp nháy nhẹ */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ============================================================================
+   INPUT & SELECT - Các trường nhập liệu
+   ============================================================================ */
 
 input,
 select {
-  padding: 5px;
-  width: 250px;
+  padding: 12px 15px;
+  width: 100%;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
+/* Hiệu ứng khi focus (click vào input) */
+input:focus,
+select:focus {
+  oCác select ngày tháng năm */
+select {
+  width: calc(33.333% - 7px);
+  display: inline-block;
+  margin-right: 10px;
+}
+
+select:last-of-type {
+  margin-right: 0;
+}
+
+/* utline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Hiệu ứng hover (rê chuột vào) */
+input:hover,
+select:hover {
+  border-color: #999;
+}
+
+/* Hiệu ứng khi có lỗi */
+input.error,
+select.error {
+  border-color: #e74c3c;
+  animation: shakeInput 0.3s ease-in-out;
+}
+
+@keyframes shakeInput {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* ============================================================================
+   BUTTONS - Nút bấm
+   ============================================================================ */
+
 button {
-  padding: 8px 15px;
+  padding: 12px 30px;
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Nút Login (xanh dương) */
+button:first-of-type {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:first-of-type:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+button:first-of-type:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+}
+
+/* Nút Cancel (xám) */
+button:last-of-type {
+  background: #95a5a6;
+  color: white;
+  box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+}
+
+button:last-of-type:hover {
+  background: #7f8c8d;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(149, 165, 166, 0.5);
+}
+
+button:last-of-type:active {
+  transform: translateY(-1px);
+}
+
+/* Hiệu ứng ripple khi click */
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::after {
+  width: 300px;
+  .container {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  select {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+}
+
+/* ============================================================================
+   CONFETTI - Hiệu ứng rãi màu khi thành công
+   ============================================================================ */
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #f0f;
+  position: absolute;
+  animation: confetti-fall 3s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotateZ(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotateZ(720deg);
+    opacity: 0;
+  }
+}
+
+/* Hiệu ứng floating particles nền */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 15s infinite;
+  opacity: 0.3;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-100px) translateX(50px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(-50px) translateX(-50px) rotate(240deg);
+  }
+}
+
+/* Các màu particles khác nhau */
+.particle:nth-child(1) {
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 107, 107, 0.3);
+  top: 20%;
+  left: 20%;
+  animation-duration: 12s;
+}
+
+.particle:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  background: rgba(78, 205, 196, 0.3);
+  top: 60%;
+  left: 80%;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+.particle:nth-child(3) {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 198, 88, 0.3);
+  top: 80%;
+  left: 30%;
+  animation-duration: 15s;
+  animation-delay: 4s;
+}
+
+.particle:nth-child(4) {
+  width: 35px;
+  height: 35px;
+  background: rgba(147, 51, 234, 0.3);
+  top: 40%;
+  left: 70%;
+  animation-duration: 20s;
+  animation-delay: 1s;
+}
+
+.particle:nth-child(5) {
+  width: 45px;
+  height: 45px;
+  background: rgba(236, 72, 153, 0.3);
+  top: 10%;
+  left: 50%;
+  animation-duration: 16s;
+  animation-delay: 3s;
+}
+
+/* ============================================================================
+   RESPONSIVE - Tương thích màn hình nhỏ
+   ============================================================================ */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  select {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 }
