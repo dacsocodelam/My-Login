@@ -105,6 +105,15 @@ label {
   font-size: 1.05rem;
 }
 
+/* Dấu tròn đỏ cho trường bắt buộc */
+.required {
+  color: #d32f2f;
+  font-size: 20px;
+  margin-left: 4px;
+  font-weight: bold;
+  
+}
+
 /* ============================================================================
    ERROR MESSAGES - Thông báo lỗi
    ============================================================================ */
