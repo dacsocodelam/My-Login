@@ -7,15 +7,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Particles nền -->
-    <div class="particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-
     <div class="container">
       <h2>WEB ログイン</h2>
       <div id="msg_E0000" class="main-error">
@@ -35,7 +26,12 @@
           E0001: 診察券番号をまだ入力していないです。
         </div>
         <label>診察券番号 (ID):</label>
-        <input type="text" id="inp_id" placeholder="Nhập số (VD: 12345)" />
+        <input
+          type="text"
+          id="inp_id"
+          placeholder="数字を入力してください (例: 12345)"
+          autocomplete="off"
+        />
       </div>
 
       <div class="form-group">
@@ -43,9 +39,9 @@
           E0005: 生年月日が正しくありません。
         </div>
         <label>生年月日:</label>
-        <select id="inp_year"></select>
-        <select id="inp_month"></select>
-        <select id="inp_day"></select>
+        <select id="inp_year" autocomplete="off"></select>
+        <select id="inp_month" autocomplete="off"></select>
+        <select id="inp_day" autocomplete="off"></select>
       </div>
 
       <div class="form-group">
@@ -55,8 +51,13 @@
         <div id="msg_E0019" class="error-msg">
           E0019: Format Email が正しくありません。
         </div>
-        <label>Email:</label>
-        <input type="text" id="inp_email" placeholder="abc@example.com" />
+        <label>メールアドレス:</label>
+        <input
+          type="text"
+          id="inp_email"
+          placeholder="abc@example.com"
+          autocomplete="off"
+        />
       </div>
 
       <div class="form-group">
@@ -64,11 +65,16 @@
           E0001: パスワードをまだ入力していないです。
         </div>
         <label>パスワード:</label>
-        <input type="password" id="inp_pass" />
+        <input
+          type="password"
+          id="inp_pass"
+          placeholder="パスワードを入力してください"
+          autocomplete="new-password"
+        />
       </div>
 
-      <button onclick="handleLogin()">Login</button>
-      <button onclick="clearForm()">Cancel</button>
+      <button onclick="handleLogin()">ログイン</button>
+      <button onclick="clearForm()">キャンセル</button>
     </div>
 
     <script src="script.js"></script>

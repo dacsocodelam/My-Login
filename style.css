@@ -2,30 +2,32 @@
    GENERAL STYLES - Thiết lập giao diện tổng thể
    ============================================================================ */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: radial-gradient(circle at 60% 40%, #f3e6fa 0%, #d66dd3 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  position: relative;
-  overflow: hidden;
 }
 
 /* Container chứa form */
-.container {
-  background: white;
+body > * {
+  background: rgba(255, 255, 255, 0.98);
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 #d66dd3;
+  max-width: 450px;
   width: 100%;
   animation: slideDown 0.5s ease-out;
-  position: relative;
-  z-index: 10;
 }
 
 /* Hiệu ứng trượt xuống khi load trang */
@@ -41,11 +43,11 @@ body {
 }
 
 h2 {
-  color: #667eea;
+  color: #3f2b96;
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 0;
-  font-size: 28px;
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+  font-weight: 700;
   animation: fadeIn 0.8s ease-in;
 }
 
@@ -63,22 +65,25 @@ h2 {
    ============================================================================ */
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   animation: fadeInUp 0.6s ease-out backwards;
 }
 
 /* Hiệu ứng xuất hiện từng form-group */
-.form-group:nth-child(5) {
+.form-group:nth-child(2) {
   animation-delay: 0.1s;
 }
-.form-group:nth-child(6) {
+.form-group:nth-child(3) {
   animation-delay: 0.2s;
 }
-.form-group:nth-child(7) {
+.form-group:nth-child(4) {
   animation-delay: 0.3s;
 }
-.form-group:nth-child(8) {
+.form-group:nth-child(5) {
   animation-delay: 0.4s;
+}
+.form-group:nth-child(6) {
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {
@@ -94,10 +99,10 @@ h2 {
 
 label {
   display: block;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
-  font-size: 14px;
+  color: #2d1b3b;
+  font-size: 1.05rem;
 }
 
 /* ============================================================================
@@ -105,14 +110,15 @@ label {
    ============================================================================ */
 
 .error-msg {
-  color: #e74c3c;
-  font-size: 0.85em;
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 0.95rem;
+  border: 1px solid #ef9a9a;
   display: none;
-  margin-bottom: 8px;
-  padding: 8px 12px;
-  background: #ffe6e6;
-  border-left: 3px solid #e74c3c;
-  border-radius: 4px;
   animation: shakeError 0.5s ease-in-out;
 }
 
@@ -138,14 +144,15 @@ label {
 }
 
 .main-error {
-  color: #e74c3c;
+  color: #d32f2f;
   font-weight: bold;
   padding: 15px 20px;
-  border: 2px solid #e74c3c;
-  background: #ffe6e6;
+  border: 1px solid #ef9a9a;
+  background: #ffebee;
   display: none;
   margin-bottom: 25px;
   border-radius: 8px;
+  text-align: center;
   animation: slideInFromTop 0.4s ease-out, pulse 0.6s ease-in-out;
 }
 
@@ -178,45 +185,36 @@ label {
 
 input,
 select {
-  padding: 12px 15px;
+  padding: 12px 16px;
   width: 100%;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  border: 2px solid #e0b3f7;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #2d1b3b;
+  background: #fff;
+  transition: border 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
 }
 
 /* Hiệu ứng khi focus (click vào input) */
 input:focus,
 select:focus {
-  oCác select ngày tháng năm */
-select {
-  width: calc(33.333% - 7px);
-  display: inline-block;
-  margin-right: 10px;
-}
-
-select:last-of-type {
-  margin-right: 0;
-}
-
-/* utline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-  transform: translateY(-2px);
+  outline: none;
+  border: 2px solid #3f2b96;
+  box-shadow: 0 0 0 3px #e0b3f7;
+  transform: none;
 }
 
 /* Hiệu ứng hover (rê chuột vào) */
 input:hover,
 select:hover {
-  border-color: #999;
+  border-color: #d66dd3;
 }
 
 /* Hiệu ứng khi có lỗi */
 input.error,
 select.error {
-  border-color: #e74c3c;
+  border-color: #d32f2f;
   animation: shakeInput 0.3s ease-in-out;
 }
 
@@ -238,55 +236,64 @@ select.error {
    ============================================================================ */
 
 button {
-  padding: 12px 30px;
+  padding: 14px 32px;
   cursor: pointer;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
   margin-right: 10px;
   margin-top: 20px;
-  transition: all 0.3s ease;
+  transition: all 0.2s;
   position: relative;
   overflow: hidden;
 }
 
-/* Nút Login (xanh dương) */
+/* Nút Login (gradient tím hồng) */
 button:first-of-type {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  width: 100%;
+  background: linear-gradient(90deg, #3f2b96 0%, #d66dd3 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px 0 #d66dd3;
+  margin-bottom: 16px;
 }
 
 button:first-of-type:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  background: linear-gradient(90deg, #d66dd3 0%, #3f2b96 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px 0 #a06cd5;
 }
 
 button:first-of-type:active {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px 0 #d66dd3;
 }
 
-/* Nút Cancel (xám) */
+/* Nút Cancel (link style) */
 button:last-of-type {
-  background: #95a5a6;
-  color: white;
-  box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+  width: 100%;
+  background: transparent;
+  color: #3f2b96;
+  font-weight: 600;
+  box-shadow: none;
+  text-decoration: none;
+  margin-bottom: 0;
 }
 
 button:last-of-type:hover {
-  background: #7f8c8d;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(149, 165, 166, 0.5);
+  color: #d66dd3;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+  text-decoration: underline;
 }
 
 button:last-of-type:active {
-  transform: translateY(-1px);
+  transform: none;
 }
 
-/* Hiệu ứng ripple khi click */
-button::after {
+/* Hiệu ứng ripple khi click - giữ nguyên */
+button:first-of-type::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -299,133 +306,9 @@ button::after {
   transition: width 0.6s, height 0.6s;
 }
 
-button:active::after {
+button:first-of-type:active::after {
   width: 300px;
-  .container {
-    padding: 25px;
-    margin: 10px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  button {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  select {
-    width: 100%;
-    margin-bottom: 10px;
-    margin-right: 0;
-  }
-}
-
-/* ============================================================================
-   CONFETTI - Hiệu ứng rãi màu khi thành công
-   ============================================================================ */
-
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: #f0f;
-  position: absolute;
-  animation: confetti-fall 3s linear forwards;
-  z-index: 9999;
-}
-
-@keyframes confetti-fall {
-  0% {
-    transform: translateY(0) rotateZ(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotateZ(720deg);
-    opacity: 0;
-  }
-}
-
-/* Hiệu ứng floating particles nền */
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 15s infinite;
-  opacity: 0.3;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  33% {
-    transform: translateY(-100px) translateX(50px) rotate(120deg);
-  }
-  66% {
-    transform: translateY(-50px) translateX(-50px) rotate(240deg);
-  }
-}
-
-/* Các màu particles khác nhau */
-.particle:nth-child(1) {
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 107, 107, 0.3);
-  top: 20%;
-  left: 20%;
-  animation-duration: 12s;
-}
-
-.particle:nth-child(2) {
-  width: 50px;
-  height: 50px;
-  background: rgba(78, 205, 196, 0.3);
-  top: 60%;
-  left: 80%;
-  animation-duration: 18s;
-  animation-delay: 2s;
-}
-
-.particle:nth-child(3) {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 198, 88, 0.3);
-  top: 80%;
-  left: 30%;
-  animation-duration: 15s;
-  animation-delay: 4s;
-}
-
-.particle:nth-child(4) {
-  width: 35px;
-  height: 35px;
-  background: rgba(147, 51, 234, 0.3);
-  top: 40%;
-  left: 70%;
-  animation-duration: 20s;
-  animation-delay: 1s;
-}
-
-.particle:nth-child(5) {
-  width: 45px;
-  height: 45px;
-  background: rgba(236, 72, 153, 0.3);
-  top: 10%;
-  left: 50%;
-  animation-duration: 16s;
-  animation-delay: 3s;
+  height: 300px;
 }
 
 /* ============================================================================
@@ -433,7 +316,7 @@ button:active::after {
    ============================================================================ */
 
 @media (max-width: 600px) {
-  .container {
+  body > * {
     padding: 25px;
     margin: 10px;
   }
@@ -446,11 +329,5 @@ button:active::after {
     width: 100%;
     margin-right: 0;
     margin-bottom: 10px;
-  }
-
-  select {
-    width: 100%;
-    margin-bottom: 10px;
-    margin-right: 0;
   }
 }

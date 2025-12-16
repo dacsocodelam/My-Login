@@ -5,7 +5,7 @@
 // Trong thực tế, dữ liệu này sẽ được lấy từ server qua API
 const DB_PERSON = [
   {
-    examination_number: "12345",    // Mã số khám bệnh
+    examination_number: "92341235",    // Mã số khám bệnh
     birthday: "2002-12-22",         // Ngày sinh (Format: YYYY-MM-DD)
     email: "dat@test.com",          // Email đăng ký
     deleted_flag: 0,                // 0 = Chưa xóa, 1 = Đã xóa
