@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB ログイン Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2>WEB ログイン</h2>
+    <div id="msg_E0000" class="main-error">
+      E0000: システムエラーが発生しました。時間をおいて再度お試しください。
+    </div>
+
+    <div id="msg_M0103" class="main-error">
+      M0103: 患者情報が見つかりません (またはデータが間違っています)。
+    </div>
+
+    <div id="msg_M0109" class="main-error">
+      M0109: このアカウントはすでに登録されています。
+    </div>
+
+    <div class="form-group">
+      <div id="msg_E0001_id" class="error-msg">
+        E0001: 診察券番号をまだ入力していないです。
+      </div>
+      <label>診察券番号 (ID):</label>
+      <input type="text" id="inp_id" placeholder="Nhập số (VD: 12345)" />
+    </div>
+
+    <div class="form-group">
+      <div id="msg_E0005" class="error-msg">E0005: 生年月日が正しくありません。</div>
+      <label>生年月日:</label>
+      <select id="inp_year" style="width: 80px"></select>
+      <select id="inp_month" style="width: 60px"></select>
+      <select id="inp_day" style="width: 60px"></select>
+    </div>
+
+    <div class="form-group">
+      <div id="msg_E0001_email" class="error-msg">
+        E0001: メールアドレスを入力 してください。
+      </div>
+      <div id="msg_E0019" class="error-msg">
+        E0019: Format Email が正しくありません。
+      </div>
+      <label>Email:</label>
+      <input type="text" id="inp_email" placeholder="abc@example.com" />
+    </div>
+
+    <div class="form-group">
+      <div id="msg_E0001_pass" class="error-msg">
+        E0001: パスワードをまだ入力していないです。
+      </div>
+      <label>パスワード:</label>
+      <input type="password" id="inp_pass" />
+    </div>
+
+    <button onclick="handleLogin()">Login</button>
+    <button onclick="clearForm()">Cancel</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

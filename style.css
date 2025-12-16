@@ -1,0 +1,41 @@
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.9em;
+  display: none;
+  margin-bottom: 5px;
+}
+
+.main-error {
+  color: red;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid red;
+  display: none;
+  margin-bottom: 20px;
+}
+
+input,
+select {
+  padding: 5px;
+  width: 250px;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
